@@ -1,0 +1,356 @@
+
+
+---
+
+# 🧠 MASTER PROMPT — BUILD COMPLETE APPLICATION
+
+---
+
+## 🧠 ROLE & MINDSET
+
+You are a **senior product engineer + UX architect** building a **student-first SQL & Database Learning Platform**.
+
+You must think:
+
+* like a **confused beginner**
+* like a **computer science student**
+* like a **data analyst learner**
+* NOT like a competitive programmer
+
+This platform is **NOT a LeetCode clone**.
+
+The goal is **deep understanding, clarity, and confidence**.
+
+---
+
+## 🎯 PRODUCT GOAL
+
+Build a **complete web application** that teaches:
+
+> **SQL + Database Design the way databases are actually built**
+
+Learning flow:
+**Real-world problem → Database design → SQL queries → Execution understanding → Optimization**
+
+---
+
+## 🚫 WHAT THIS IS NOT
+
+* ❌ No competitive rankings
+* ❌ No stress-based problem solving
+* ❌ No theory-only explanations
+* ❌ No interview-only focus
+* ❌ No cluttered UI
+
+---
+
+## 🌱 CORE PHILOSOPHY
+
+Students should:
+
+* *see* how data flows
+* *understand* why queries work
+* *design* databases before querying
+* *learn visually and interactively*
+
+Every feature must answer:
+
+> “Why does this exist in real life?”
+
+---
+
+## 🧩 CORE FEATURES (MUST BUILD ALL)
+
+### 1️⃣ Guided Learning Paths
+
+Provide structured learning paths:
+
+* Beginner SQL
+* SQL for Data Analysts
+* SQL for Backend Developers
+* Database Design Fundamentals
+
+Each path:
+
+* Locked progression
+* Clear milestones
+* Short lessons
+* Practice immediately after concepts
+
+---
+
+### 2️⃣ Real-World Problem → Schema → Query Flow (CRITICAL)
+
+Instead of giving tables directly:
+
+**Step 1:** Show a real-life scenario
+Example:
+
+> “You are building an online food delivery app”
+
+**Step 2:** Student designs schema visually
+
+* Create tables
+* Add columns
+* Choose data types
+* Set primary & foreign keys
+
+(UI can be form-based or visual blocks)
+
+**Step 3:** Platform validates schema
+
+* Missing primary key
+* Poor normalization
+* Redundant data
+* Incorrect relationships
+
+Explain errors in **student language**
+
+**Step 4:** Student writes SQL queries on *their own schema*
+
+---
+
+### 3️⃣ SQL Practice Playground
+
+* Embedded SQL editor
+* Run query button
+* Output shown in clean tables
+* Reset database
+* Only safe, sandboxed queries
+
+---
+
+### 4️⃣ Visual JOIN Playground (MANDATORY)
+
+JOINs must be **visual**, not abstract.
+
+Features:
+
+* Tables displayed side-by-side
+* PK–FK connections shown visually
+* Toggle between:
+
+  * INNER JOIN
+  * LEFT JOIN
+  * RIGHT JOIN
+* Rows highlighted to show:
+
+  * matched rows
+  * unmatched rows
+  * NULL results
+
+Goal:
+
+> Student should *see* what JOIN does
+
+---
+
+### 5️⃣ SQL Error Explainer (Student-Friendly)
+
+Instead of raw DB errors, show:
+
+* ❌ What went wrong
+* ✔ Why it happened
+* 💡 How to fix it
+* 📘 Link to related concept
+
+Tone must be **supportive**, not technical.
+
+---
+
+### 6️⃣ “Why This Query Works” Mode
+
+When a query runs, explain execution order:
+
+1. FROM
+2. JOIN
+3. WHERE
+4. GROUP BY
+5. HAVING
+6. SELECT
+7. ORDER BY
+
+Use:
+
+* Highlighting
+* Step indicators
+* Visual row filtering where possible
+
+---
+
+### 7️⃣ Database Design & Normalization Playground
+
+Teach:
+
+* What is a good table
+* What is bad design
+* 1NF, 2NF, 3NF (conceptually)
+
+When a student designs a bad table:
+
+* Detect redundancy
+* Explain normalization
+* Suggest corrected schema
+
+Example:
+
+```
+Orders(user_name, user_email, product_name)
+```
+
+Explain:
+
+> “User data is repeating → split into Users & Orders”
+
+---
+
+### 8️⃣ Real Industry Scenarios (NOT TOY DATA)
+
+Include scenarios:
+
+* E-commerce
+* Hospital Management
+* College Database
+* Banking
+* Social Media
+
+Each scenario includes:
+
+* ER diagram
+* Schema explanation
+* Progressive SQL queries
+* Performance tips
+
+---
+
+### 9️⃣ Bad Query → Good Query Trainer
+
+Show:
+
+* ❌ Inefficient query
+* ✔ Correct query
+* 🚀 Optimized query
+
+Explain:
+
+* Why optimizer prefers one
+* Index usage
+* Query cost (conceptual)
+
+---
+
+### 🔟 Mini Projects (PORTFOLIO-WORTHY)
+
+Students can complete:
+
+* Library Management DB
+* Student Portal DB
+* Online Store DB
+
+Each project includes:
+
+* Database design
+* Queries
+* Fixing mistakes
+* Optimization
+
+---
+
+## 🎨 UI / UX REQUIREMENTS (VERY IMPORTANT)
+
+### Visual Style
+
+* **Apple-inspired UI**
+* Minimal
+* Smooth animations
+* Soft shadows
+* Rounded corners
+* Generous spacing
+
+### Color Theme
+
+* **Primary:** Orange (#FF8C00 style)
+* **Background:** White
+* **Accents:** Light gray
+* No harsh contrasts
+
+### UX Principles
+
+* Zero clutter
+* Beginner-friendly wording
+* Visual > Text
+* Fast load
+* Smooth transitions
+* Delightful micro-interactions
+
+---
+
+## 🧱 TECH EXPECTATIONS
+
+### Frontend
+
+* Next.js / React
+* Tailwind CSS
+* Smooth transitions
+* Monaco / CodeMirror editor
+
+### Backend
+
+* Node.js + Express
+* PostgreSQL or MySQL
+* Query sandboxing
+* Read-only DB users
+* Timeouts & safety checks
+
+---
+
+## 📊 PROGRESS & FEEDBACK
+
+* Progress tracking
+* Completion indicators
+* Encouraging messages
+* No leaderboards
+
+---
+
+## 🧠 BRAND POSITIONING
+
+This platform should feel like:
+
+> “A calm, clear mentor that finally makes databases make sense.”
+
+NOT:
+
+> “A judge evaluating your code.”
+
+---
+
+## 🏁 FINAL EXPECTATION
+
+Build a **production-ready, scalable application** that:
+
+* Teaches SQL deeply
+* Teaches database design visually
+* Is beginner-first
+* Is smooth, beautiful, and calming
+* Feels premium even without payment
+
+---
+
+## ✅ OUTPUT EXPECTED FROM YOU
+
+You must:
+
+* Design architecture
+* Build frontend pages
+* Implement backend logic
+* Ensure UX clarity
+* Prioritize student understanding
+* Follow Apple-level polish
+
+---
+
+🔥 **This is the missing learning layer in database education.
+Build it with care, clarity, and elegance.**
+
+---

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Link } from "wouter";
+import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -165,12 +165,12 @@ export default function Scenarios() {
                     </div>
                     <div className="flex flex-wrap gap-1.5 min-h-[24px]">
                       {scenario.tables.slice(0, 4).map((table) => (
-                        <Badge key={table} variant="outline" size="sm" className="font-mono">
+                        <Badge key={table} variant="outline" className="font-mono">
                           {table}
                         </Badge>
                       ))}
                       {scenario.tables.length > 4 && (
-                        <Badge variant="outline" size="sm">
+                        <Badge variant="outline">
                           +{scenario.tables.length - 4}
                         </Badge>
                       )}
@@ -217,7 +217,7 @@ export default function Scenarios() {
                       <div className="flex flex-wrap gap-1.5">
                         {selectedScenario.tables.length > 0 ? (
                           selectedScenario.tables.map((table) => (
-                            <Badge key={table} variant="secondary" size="sm" className="font-mono">
+                            <Badge key={table} variant="secondary" className="font-mono">
                               <Table2 className="mr-1 h-3 w-3" />
                               {table}
                             </Badge>
@@ -239,7 +239,7 @@ export default function Scenarios() {
                         className="h-2"
                       />
                     </div>
-                    <Link href="/playground">
+                    <Link to="/playground">
                       <Button className="w-full" data-testid="button-start-practice">
                         <Play className="mr-2 h-4 w-4" />
                         Start Practicing
@@ -282,7 +282,7 @@ export default function Scenarios() {
                                   </div>
                                   <div className="space-y-1 text-xs text-muted-foreground">
                                     <div className="flex items-center gap-2">
-                                      <Badge variant="secondary" size="sm">PK</Badge>
+                                      <Badge variant="secondary">PK</Badge>
                                       <span className="font-mono">id</span>
                                     </div>
                                     <div className="font-mono">...</div>
@@ -329,7 +329,6 @@ export default function Scenarios() {
                                       <span className="font-medium">{exercise.title}</span>
                                       <Badge
                                         variant="secondary"
-                                        size="sm"
                                         className={getDifficultyColor(exercise.difficulty)}
                                       >
                                         {exercise.difficulty}
@@ -339,7 +338,7 @@ export default function Scenarios() {
                                       {exercise.description}
                                     </p>
                                   </div>
-                                  <Link href="/playground">
+                                  <Link to="/playground">
                                     <Button size="sm" variant="outline">
                                       <Play className="mr-2 h-3.5 w-3.5" />
                                       Start

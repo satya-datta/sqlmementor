@@ -1,4 +1,4 @@
-import { Link } from "wouter";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
@@ -75,7 +75,7 @@ export default function Landing() {
       <section className="relative overflow-hidden pb-20 pt-16 md:pb-32 md:pt-24">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-primary/5 via-background to-background" />
         <div className="absolute left-1/2 top-0 -z-10 h-96 w-96 -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
-        
+
         <div className="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -86,25 +86,25 @@ export default function Landing() {
               <Sparkles className="h-4 w-4 text-primary" />
               <span>Learn SQL the visual way</span>
             </div>
-            
+
             <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
               Master SQL &<br />
               <span className="text-primary">Database Design</span>
             </h1>
-            
+
             <p className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground md:text-xl">
               A calm, clear mentor that finally makes databases make sense. Learn through visual exploration,
               real-world problems, and gentle guidance — not stress and competition.
             </p>
-            
+
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link href="/learn">
+              <Link to="/learn/login">
                 <Button size="lg" className="gap-2 text-base" data-testid="button-start-learning">
                   <Play className="h-4 w-4" />
                   Start Learning Free
                 </Button>
               </Link>
-              <Link href="/playground">
+              <Link to="/playground">
                 <Button size="lg" variant="outline" className="gap-2 text-base" data-testid="button-try-playground">
                   Try SQL Playground
                   <ArrowRight className="h-4 w-4" />
@@ -197,7 +197,7 @@ export default function Landing() {
           >
             {learningPaths.map((path) => (
               <motion.div key={path.title} variants={fadeInUp}>
-                <Link href="/learn">
+                <Link to="/learn">
                   <Card className="group h-full cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg">
                     <CardHeader className="pb-3">
                       <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary/80 shadow-lg shadow-primary/25">
@@ -292,7 +292,7 @@ export default function Landing() {
             <p className="mb-8 text-lg text-muted-foreground">
               Start your journey today. No account needed to begin learning.
             </p>
-            <Link href="/learn">
+            <Link to="/auth/login">
               <Button size="lg" className="gap-2 text-base" data-testid="button-get-started">
                 Get Started Free
                 <ArrowRight className="h-4 w-4" />

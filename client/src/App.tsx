@@ -1,4 +1,4 @@
-import { Switch, Route } from "wouter";
+import { Routes, Route } from "react-router-dom";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -11,18 +11,24 @@ import Playground from "@/pages/playground";
 import JoinPlayground from "@/pages/joins";
 import SchemaDesigner from "@/pages/schema-designer";
 import Scenarios from "@/pages/scenarios";
+import LessonView from "@/pages/lesson";
+import { Auth } from "@/pages/auth";
+import { Account } from "@/pages/account";
 
 function Router() {
   return (
-    <Switch>
-      <Route path="/" component={Landing} />
-      <Route path="/learn" component={Learn} />
-      <Route path="/playground" component={Playground} />
-      <Route path="/joins" component={JoinPlayground} />
-      <Route path="/schema-designer" component={SchemaDesigner} />
-      <Route path="/scenarios" component={Scenarios} />
-      <Route component={NotFound} />
-    </Switch>
+    <Routes>
+      <Route path="/" element={<Landing />} />
+      <Route path="/learn" element={<Learn />} />
+      <Route path="/learn/path/:pathId/lesson/:lessonId" element={<LessonView />} />
+      <Route path="/playground" element={<Playground />} />
+      <Route path="/joins" element={<JoinPlayground />} />
+      <Route path="/schema-designer" element={<SchemaDesigner />} />
+      <Route path="/scenarios" element={<Scenarios />} />
+      <Route path="/auth/:pathname" element={<Auth />} />
+      <Route path="/account/:pathname" element={<Account />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
 

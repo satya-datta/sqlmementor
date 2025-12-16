@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "wouter";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
@@ -125,8 +125,8 @@ export default function Learn() {
               <motion.div key={path.id} variants={fadeInUp}>
                 <Card
                   className={`cursor-pointer transition-all duration-200 ${selectedPathId === path.id
-                      ? "border-primary ring-1 ring-primary"
-                      : "hover:border-primary/50"
+                    ? "border-primary ring-1 ring-primary"
+                    : "hover:border-primary/50"
                     }`}
                   onClick={() => setSelectedPathId(path.id)}
                   data-testid={`card-path-${path.id}`}
@@ -136,7 +136,7 @@ export default function Learn() {
                       <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10">
                         {getIcon(path.icon)}
                       </div>
-                      <Badge variant="secondary" size="sm" className="shrink-0">
+                      <Badge variant="secondary" className="shrink-0">
                         {path.difficulty}
                       </Badge>
                     </div>
@@ -207,33 +207,36 @@ export default function Learn() {
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: index * 0.05 }}
-                          className="flex items-center gap-4 p-4 transition-colors hover:bg-muted/50"
-                          data-testid={`lesson-${lesson.id}`}
                         >
-                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-muted bg-background">
-                            <Circle className="h-4 w-4 text-muted-foreground" />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-2 flex-wrap">
-                              <span className="font-medium truncate">{lesson.title}</span>
-                              <Badge
-                                variant="secondary"
-                                size="sm"
-                                className={`${getTypeColor(lesson.type)} shrink-0`}
-                              >
-                                {getTypeLabel(lesson.type)}
-                              </Badge>
+                          <Link to={`/learn/path/${selectedPath.id}/lesson/${lesson.id}`} data-testid={`lesson-${lesson.id}`}>
+                            <div className="group flex items-center justify-between rounded-lg border bg-card p-4 transition-all hover:bg-muted/50 cursor-pointer">
+                              <div className="flex items-center gap-4">
+                                <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-muted bg-background">
+                                  <Circle className="h-4 w-4 text-muted-foreground" />
+                                </div>
+                                <div>
+                                  <div className="flex items-center gap-2">
+                                    <span className="font-semibold group-hover:text-primary transition-colors">{lesson.title}</span>
+                                    {/* Assuming getLessonIcon is defined elsewhere or needs to be added */}
+                                    {/* {getLessonIcon(lesson.videoUrl ? "video" : "text")} */}
+                                    <Badge
+                                      variant="secondary"
+                                      className={`${getTypeColor(lesson.type)} shrink-0`}
+                                    >
+                                      {getTypeLabel(lesson.type)}
+                                    </Badge>
+                                  </div>
+                                  <p className="text-sm text-muted-foreground">
+                                    {lesson.description}
+                                  </p>
+                                </div>
+                              </div>
+                              <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                                <span>15 min</span> {/* This was hardcoded, consider making it dynamic */}
+                                <ChevronRight className="h-4 w-4 opacity-0 transition-all group-hover:opacity-100 group-hover:translate-x-1" />
+                              </div>
                             </div>
-                            <p className="text-sm text-muted-foreground truncate">
-                              {lesson.description}
-                            </p>
-                          </div>
-                          <div className="flex shrink-0 items-center gap-4">
-                            <span className="text-sm text-muted-foreground">15 min</span>
-                            <Button size="icon" variant="ghost">
-                              <ChevronRight className="h-4 w-4" />
-                            </Button>
-                          </div>
+                          </Link>
                         </motion.div>
                       ))
                     )}

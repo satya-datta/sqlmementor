@@ -149,18 +149,18 @@ export default function SchemaDesigner() {
       tables.map((t) =>
         t.name === currentTable.name
           ? {
-              ...t,
-              columns: [
-                ...t.columns,
-                {
-                  name: `column_${t.columns.length + 1}`,
-                  type: "VARCHAR(255)",
-                  isPrimaryKey: false,
-                  isForeignKey: false,
-                  isNullable: true,
-                },
-              ],
-            }
+            ...t,
+            columns: [
+              ...t.columns,
+              {
+                name: `column_${t.columns.length + 1}`,
+                type: "VARCHAR(255)",
+                isPrimaryKey: false,
+                isForeignKey: false,
+                isNullable: true,
+              },
+            ],
+          }
           : t
       )
     );
@@ -173,11 +173,11 @@ export default function SchemaDesigner() {
         tables.map((t) =>
           t.name === currentTable.name
             ? {
-                ...t,
-                columns: t.columns.map((c, i) =>
-                  i === columnIndex ? { ...c, ...updates } : c
-                ),
-              }
+              ...t,
+              columns: t.columns.map((c, i) =>
+                i === columnIndex ? { ...c, ...updates } : c
+              ),
+            }
             : t
         )
       );
@@ -192,9 +192,9 @@ export default function SchemaDesigner() {
         tables.map((t) =>
           t.name === currentTable.name
             ? {
-                ...t,
-                columns: t.columns.filter((_, i) => i !== columnIndex),
-              }
+              ...t,
+              columns: t.columns.filter((_, i) => i !== columnIndex),
+            }
             : t
         )
       );
@@ -209,7 +209,7 @@ export default function SchemaDesigner() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ tables }),
       });
-      
+
       const data = await response.json();
       setValidation(data);
     } catch (err) {
@@ -271,18 +271,17 @@ export default function SchemaDesigner() {
                         key={table.name}
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className={`group flex items-center justify-between rounded-lg border p-3 transition-all cursor-pointer ${
-                          selectedTable === table.name
+                        className={`group flex items-center justify-between rounded-lg border p-3 transition-all cursor-pointer ${selectedTable === table.name
                             ? "border-primary bg-primary/5"
                             : "hover:border-primary/50"
-                        }`}
+                          }`}
                         onClick={() => setSelectedTable(table.name)}
                         data-testid={`table-${table.name}`}
                       >
                         <div className="flex items-center gap-2">
                           <Table2 className="h-4 w-4 text-primary" />
                           <span className="font-mono text-sm font-medium">{table.name}</span>
-                          <Badge variant="secondary" size="sm">
+                          <Badge variant="secondary">
                             {table.columns.length} cols
                           </Badge>
                         </div>
@@ -471,7 +470,7 @@ export default function SchemaDesigner() {
                                 <p className="mt-1 text-sm text-muted-foreground">
                                   {error.suggestion}
                                 </p>
-                                <Badge variant="secondary" size="sm" className="mt-2">
+                                <Badge variant="secondary" className="mt-2">
                                   Table: {error.table}
                                 </Badge>
                               </div>
@@ -491,11 +490,11 @@ export default function SchemaDesigner() {
                                   {warning.suggestion}
                                 </p>
                                 <div className="mt-2 flex gap-2">
-                                  <Badge variant="secondary" size="sm">
+                                  <Badge variant="secondary">
                                     Table: {warning.table}
                                   </Badge>
                                   {warning.column && (
-                                    <Badge variant="outline" size="sm">
+                                    <Badge variant="outline">
                                       Column: {warning.column}
                                     </Badge>
                                   )}

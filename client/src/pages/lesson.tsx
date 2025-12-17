@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import type { Lesson, LearningPath } from "@shared/schema";
 import { motion } from "framer-motion";
 
@@ -62,7 +63,7 @@ export default function LessonView() {
                     <div className="prose prose-slate dark:prose-invert max-w-none">
                         <h1>{currentLesson.title}</h1>
                         <p className="lead">{currentLesson.description}</p>
-                        <ReactMarkdown>{currentLesson.content}</ReactMarkdown>
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>{currentLesson.content}</ReactMarkdown>
                     </div>
 
                     <Separator />

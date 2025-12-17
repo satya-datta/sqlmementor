@@ -49,10 +49,13 @@ const features = [
 ];
 
 const learningPaths = [
-  { title: "Beginner SQL", lessons: 40, hours: 8, level: "Beginner" },
-  { title: "SQL for Data Analysts", lessons: 98, hours: 12, level: "Intermediate" },
-  { title: "SQL for Backend Devs", lessons: 20, hours: 10, level: "Intermediate" },
-  { title: "Database Design", lessons: 20, hours: 8, level: "All Levels" },
+
+
+  { title: "Beginner SQL", hours: 8, level: "Beginner" },
+  { title: "SQL for Data Analysts", hours: 12, level: "Intermediate" },
+  { title: "SQL for Backend Devs", hours: 10, level: "Intermediate" },
+  { title: "Database Design",  hours: 8, level: "All Levels" },
+
 ];
 
 const fadeInUp = {
